@@ -44,8 +44,8 @@ app.configure('development', function() {
 // Configure production mode
 app.configure('production', function() {
     // Compile Less files
-    utils.lessCompile(config.Dirs.staticDir + "/less/bootstrap.less", 
-                        config.Dirs.staticDir + "/css");
+    // utils.lessCompile(config.Dirs.staticDir + "/less/bootstrap.less", 
+    //                    config.Dirs.staticDir + "/css");
     app.use(express.errorHandler());
     mongoose.connect(config.DataBase.url); // online database
 });
