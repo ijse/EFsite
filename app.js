@@ -10,7 +10,7 @@ var mids = require(__dirname + "/middlewares");
 var app = module.exports = express.createServer();
 
 global.log4js = require("log4js");
-log4js.configure("./log4js-config.json");
+log4js.configure(__dirname + "/log4js-config.json");
 
 var logger = global.logger = log4js.getLogger();
 // Configuration
