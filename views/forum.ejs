@@ -1,0 +1,85 @@
+<div class="well">
+	<h3>宣传栏</h3>
+	这里是宣传栏内容
+</div>
+<div class="my-postList">
+	<ul class="unstyled">
+	<% postList.forEach(function(item, index, arr) { %>
+		<li class="row">
+			<h5 class="span7 title">
+				<span class="badge badge-warning"><%=item.reply.length %></span>
+				<a href="forum/<%=item._id%>">
+					<%=item.title %>
+				</a>
+			</h5>
+			<span class="pull-right user">
+				作者：<%=item.postUser.name %>
+			</span> 
+			<p class="row meta">
+				<span>
+					<% if(item.reply.length > 0) { %>
+					最后回复：<%=item.reply[item.reply.length-1].postUser.name%>，
+					<% } %>
+				</span>
+				<% if(item.reply.length > 0) { %>
+				<span class="lastTime" rel="dateType" title="<%=dateFormat(item.reply[item.reply.length-1].replyTime) %>"><%=item.reply[item.reply.length-1].replyTime%></span>
+				<% } else { %>
+				发表于<span class="lastTime" rel="dateType" title="<%=dateFormat(item.postTime) %>"><%=item.postTime%></span>				
+				<% } %>
+			</p>
+		</li>
+	<% }) %>
+	</ul>
+</div>
+
+<% if(pager.total !== 1) { %>
+<div class="pagination pagination-centered">
+  <ul>
+  	<% if(pager.page > 1) { %>
+    <li><a href="forum_<%=pager.page - 1%>">Prev</a></li>
+    <% } else { %>
+    <li class="disabled"><a href="javascript:void(0);">Prev</a></li>
+    <% } %>
+
+    <% 
+	var length = 10; // 最多显示十页
+	var start = Math.max(1, pager.page - length);
+	var stop = Math.min(pager.total, start + length);
+	for( ; start <= stop; start++) {
+		if(start == pager.page) {%>
+	    <li class="active">
+	    <% } else { %>
+	    <li>
+	    <% } %>
+    <a href="forum_<%=start%>"><%=start%></a></li>
+    <% } %>
+    <%
+    	if(pager.page < pager.total) {
+    %>
+    <li><a href="forum_<%=pager.page + 1%>">Next</a></li>
+    <% } else { %>
+    	<li class="disabled"><a href="javascript:void(0);">Next</a></li>
+    <% } %>
+  </ul>
+</div>
+<% } %>
+
+
+<% if(session.auth) { %>
+<form class="well form-horizontal my-postForm" method="post" action="forum/post">
+	<fieldset>
+		<legend> 发表帖子 </legend>
+		<div class="control-group row-fluid">
+			<label class="control-label" for="post[title]">标题：</label>
+			<input type="input" class="span11" name="post[title]" />
+		</div>
+		<div class="control-group row-fluid">
+			<label class="control-label" for="post[content]">内容：</label>
+			<textarea name="post[content]" class="span11 xheditor-simple {skin:'nostyle',upImgUrl:'upload_img'}"></textarea>
+		</div>
+		<input type="submit" class="span2 btn btn-primary" value="发表" />
+	</fieldset>
+</form>
+<% } else { %>
+	<h3>登陆之后才能发表</h3>
+<% } %>

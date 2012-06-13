@@ -1,0 +1,57 @@
+
+<html>
+	<head>
+		<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>	
+		<script type="text/javascript" src="./lib/ajax-upload/ajaxupload.js"></script>
+
+	</head>
+<body>
+	<form method="post" enctype="multipart/form-data" action="/upload">
+	  <input type="text" name="username">
+	  <input type="password" name="password">
+	  <input type="file" name="thumbnail">
+	  <a id="btsubmit">Upload </a>
+	</form>
+	<img id="preview" />
+
+			<script type="text/javascript">
+			new AjaxUpload($("#btsubmit"),{
+				// Location of the server-side upload script
+	            action: '/upload',
+	            // File upload name
+	            name: 'userFile',
+	            // Select & upload multiple files at once FF3.6+, Chrome 4+
+	            multiple: false,
+	            // Additional data to send
+	            data: {},
+	            // Submit file as soon as it's selected
+	            autoSubmit: true,
+	            // The type of data that you're expecting back from the server.
+	            // html and xml are detected automatically.
+	            // Only useful when you are using json data as a response.
+	            // Set to "json" in that case. 
+	            responseType: "json",
+	            // Class applied to button when mouse is hovered
+	            hoverClass: 'hover',
+	            // Class applied to button when button is focused
+	            focusClass: 'focus',
+	            // Class applied to button when AU is disabled
+	            disabledClass: 'disabled',            
+	            // When user selects a file, useful with autoSubmit disabled
+	            // You can return false to cancel upload			
+	            onChange: function(file, extension){
+	            },
+	            // Callback to fire before file is uploaded
+	            // You can return false to cancel upload
+	            onSubmit: function(file, extension){
+	            },
+	            // Fired when file upload is completed
+	            // WARNING! DO NOT USE "FALSE" STRING AS A RESPONSE!
+	            onComplete: function(file, response){
+	            	console.log(arguments);
+	            	$("#preview").attr("src", response.url);
+	            }
+			})
+		</script>
+</body>
+</html>

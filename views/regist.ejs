@@ -1,0 +1,33 @@
+<form class="well form-horizontal" method="post">
+    <fieldset> 
+        <legend>用户注册</legend>
+        <div class="control-group">
+            <label for="user[name]" class="control-label">用户名：</label>
+          <div class="controls">
+            <input type="text" name="user[name]" required="true" />
+            <p class="help-block">用户登陆名称</p>
+          </div>
+        </div>
+
+        <div class="control-group">
+            <label for="user[pass]" class="control-label">登陆密码：</label>
+            <div class="controls">
+                <input type="password" name="user[pass]" minLength="6" required="true" />
+                <p class="help-block">至少6个字符</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="user[email]" class="control-label">电子邮箱：</label>
+            <div class="controls">
+                <input type="email" name="user[email]" required="true" />
+                <p class="help-block">用来接收通知和找回密码</p>
+            </div>
+            
+        </div>
+        <div class="form-actions">
+            <input type="submit" value="完成注册" class="btn btn-primary btn-large" />
+        </div>
+    </fieldset>
+</form> <!-- .ui-form -->
+

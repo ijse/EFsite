@@ -1,0 +1,11 @@
+{
+	"appenders": [{
+		"type": "console"
+	}, {
+		"type": "file",
+		"filename": "log/efsite.log",
+		"maxLogSize": "20480",
+      	"backups": "3",
+      	"pollInterval": "15"
+	}]
+}

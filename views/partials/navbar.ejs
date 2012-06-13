@@ -1,0 +1,50 @@
+<%
+	active = typeof active === "object" ? active : {};
+	for(var i in active) {
+		active[i] = active[i] ? 'class="active"' : "";
+	}
+%>
+
+<div class="navbar navbar-fixed-top my-topNav">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/"><%=config.logo %></a>
+
+      	<ul class="nav">
+			<li <%-active["index"] %> >
+				<a href="./" title="首页">首页</a>
+			</li>
+			<li <%-active["forum"] %> >
+				<a href="forum">交流讨论</a>
+			</li>
+			<li <%-active["share"] %> >
+				<a href="#">学习分享</a>
+			</li>
+		</ul>
+		<%
+			if(session.auth) {
+		%>
+		<ul class="nav pull-right">
+			<li><a>欢迎您，<%=session.user.name %></a></li>
+			<li><a href="pim" title="个人中心">个人中心</a></li>
+			<li><a href="logout" title="退出登陆">退出登陆</a></li>
+		</ul>
+		<% } else { %>
+			<form class="nav pull-right form-inline my-loginBox" method="post" action="login">
+			  	<input type="text" name="user[name]" placeholder="UserName" class="input-small" />
+			  	<input type="password" name="user[pass]" placeholder="PassWord"  class="input-small" />
+			  	<div class="btn-group my-loginBtns">
+					<button class="btn btn-primary"><i class="icon-user icon-white"> </i>  登陆 </button>
+					<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu">
+						<li><a href="regist"><i class="icon-plus"></i> 注册用户</a></li>
+					</ul>
+				</div>
+			  	<a href="#" class="my-forgetPass" title="通过邮箱找回密码">忘记密码</a>
+			</form>
+		<% } %>
+    </div>
+  </div>
+</div>

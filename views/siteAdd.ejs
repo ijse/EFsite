@@ -1,0 +1,43 @@
+
+<p><span class="message"><%=message%></span></p>
+<% if(typeof site !== "undefined") { %>
+	<p>Name: <%=site.name %> URL: <%=site.url %></p>
+<% } %>
+
+<form action="<%=BASE_URL%>site/add" method="post">
+	<p>
+		<label for="site[name]">SiteName:</label>
+		<input type="input" name="site[name]" />
+	</p>
+	<p>
+		<label for="site[url]">SiteUrl:</label>
+		<input type="input" name="site[url]" />
+	</p>
+	<p>
+		<input type="submit" value="Submit" />
+	</p>
+</form>
+
+<table border="1px" cellpadding="10px" cellspacing="0">
+	<caption>All sites added</caption>
+	<tr>
+		<th>_id</th>
+		<th>Name</th>
+		<th>Url</th>
+		<th>Add Time</th>
+		<th>Admin</th>
+	</tr>
+	<% for(var i=0; i < allSites.length; ++i) { 
+		var site = allSites[i];
+	%>
+		<tr>
+			<td><%=site._id %></td>
+			<td><%=site.name %></td>
+			<td><a href="<%=site.url%>"><%=site.url%></a></td>
+			<td><%=site.addDate%></td>
+			<td>
+				<a href="<%=BASE_URL%>site/del/<%=site._id%>">Delete</a>
+			</td>
+		</tr>
+	<% } %>
+</table>

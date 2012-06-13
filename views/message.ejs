@@ -1,0 +1,22 @@
+<h2><%=message.title %></h2>
+<div><%-message.content %></div>
+
+<% 
+	if(typeof message.url !== "undefined") {
+		message.timeout = typeof message.timeout === "undefined" ? 3 : message.timeout;
+%>
+<p><a class="errorReturn" href="<%=message.url %>" title="Return"> <span><%=message.timeout %></span>秒后自动跳转..</a></p>
+<script type="text/javascript">
+	$(function() {
+		var timer = window.setInterval(function() {
+			var dom = $("a.errorReturn span");
+			var n = Number(dom.text());
+			dom.text(--n);
+			if(n === 0) {
+				window.location.href = dom.parent().attr("href");
+				window.clearInterval(timer);
+			}
+		}, 1000);
+	})
+</script>
+<% } %>

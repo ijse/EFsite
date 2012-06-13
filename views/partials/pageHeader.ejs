@@ -1,0 +1,33 @@
+<%
+	var title = typeof title === "undefined" ? 
+					SITE_NAME 
+					: 
+					title + " - " + SITE_NAME;
+	var PType = typeof PType === "undefined" ? "" : PType;
+%>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%=title %></title>
+		<base href="<%=BASE_URL%>" target="_self" />
+		
+		<% if(config.Debug) { %>
+		<link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
+		<script type="text/javascript" src="js/less-1.3.0.min.js"></script>
+		<% } else { %>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<% } %>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="lib/jquery-prettydate/jquery.prettydate.js"></script>
+		<script type="text/javascript" src="lib/xheditor-1.1.13/xheditor-1.1.13-zh-cn.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<% switch(PType) { 
+		case "forum": %>
+			<script type="text/javascript" src="js/forum.js"></script>
+		<% case "post": %>
+
+		<% break; } %>
+	</head>
+	<body>

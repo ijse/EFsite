@@ -1,0 +1,106 @@
+/**
+ * Defined less css
+ */
+@navbarHeight: 60px;
+@navbarBackground: @blue;
+@navbarBrandColor: @white;
+
+body { padding-top: @navbarHeight + 20;}
+.minHeight500{ min-height: 450px;}
+.my-topNav { .opacity(80); }
+
+.my-loginBox div.btn-group.my-loginBtns { top: 10px; margin-top: 10px; padding: 0; display:inline-block;}
+.my-loginBox div.btn-group .dropdown-menu { min-width: 120px; }
+a.my-forgetPass { color: @white; }
+a.my-forgetPass:hover { color:@white; }
+
+.footer {
+	padding: 20px;
+	text-align: center;
+	border-top: 1px solid @grayLight;
+}
+
+#xhePanel label { display:inline; }
+.xheTool a[cmd=About] { display:none !important; }
+/**
+ * 帖子列表
+ */
+div.my-postList {
+	ul>li {
+		padding: 10px 5px 0;
+		border-bottom: 1px solid lighten(@gray, 60%);
+
+		&:hover {
+			.transition(all .5s ease-out);
+			background-color: lighten(@grayLight, 30%);
+		}
+		.meta {
+			margin: 0;
+			text-align: right;
+			color: @grayLight;
+			font-size: @baseFontSize - 2;
+		}
+	}
+}
+/**
+ * 发表帖子表单
+ */
+form.my-postForm {
+	padding: 10px;
+
+	.control-group {
+		margin: 6px auto;
+	}
+	.control-group .control-label {
+		width: 50px;
+	}
+	textarea {
+		height: 100px;
+	}
+	input[type=submit] {
+		float: right; 
+	}
+}
+
+/**
+ * 帖子内容页
+ */
+.my-post,.my-replys {
+	.post-title { 
+		padding:5px; 
+		border-bottom: 1px solid @grayLight;
+	}
+	.author-pic {
+		clear:both;
+		height: 80px;
+		padding: 10px 0;
+		text-align:center;
+		img { width:64px; height:64px; border: 1px solid @gray; }
+	}
+	.post-info {
+		margin-bottom: 10px;
+		padding:5px 5px 0; 
+		color:@grayLight;
+		.author-name { font-size: @baseFontSize + 3;}
+	}
+	.artical-content {
+		padding: 5px;
+		margin-bottom: 20px;
+	}
+}
+
+.my-replys {
+	.reply-title {
+		height: 32px;
+		margin-bottom: 10px;
+		border-bottom: 1px solid @grayLight;
+		h3 { color: @blue; }
+	}
+	.comment {
+		padding-bottom: 20px;
+		border-bottom: 1px solid lighten(@grayLight, 30%);
+	}
+	.comment-info {
+		text-align: right;
+	}
+}

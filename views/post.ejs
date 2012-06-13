@@ -1,0 +1,85 @@
+
+<ul class="breadcrumb">
+  <li>
+    <a href="forum">帖子列表</a> <span class="divider">&gt;</span>
+  </li>
+  <li class="active"><%=post.title %></li>
+  <li class="pull-right">
+  	<a href="#">下一贴</a> 
+  </li>
+  <li class="pull-right">
+  	<a href="#">上一贴</a><span class="divider">|</span>
+  </li>
+</ul>
+
+<div class="row-fluid my-post">
+	<h3 class="post-title"><%=post.title %></h3>
+	<div class="span2 author-pic">
+		<img src="http://placehold.it/64x64"/>
+	</div>
+	<div class="offset1 body">
+		<div class="post-info">
+			<span class="author-name"><a href="#"><%=post.postUser.name %></a></span>
+			<small class="pull-right"><span title="<%=dateFormat(post.postTime) %>"><%=dateFormat(post.postTime, "YYYY-MM-dd HH:mm:ss") %></span></small>
+		</div>
+		<div class="artical-content">
+			<%-post.content %>
+		</div>
+	</div>
+</div>
+<div class="row-fluid my-replys">
+	<div class="reply-title">
+		<h3 class="pull-left">
+			<% if(post.reply.length > 0) { %>
+			<%=post.reply.length %> 条回复
+			<% } else { %>
+			没有回复
+			<% } %>
+		</h3>
+		<button class="btn btn-primary pull-right">发表回复</button>
+	</div>
+	<% post.reply === undefined || post.reply.forEach(function(item, index, arr) { %>
+	<div class="comment">
+		<div class="span2 author-pic">
+			<img src="http://placehold.it/64x64"/>
+			<p> <%=index+1%> 楼</p>
+		</div>
+		<div class="offset1 body">
+			<div class="post-info">
+				<span>
+					<a href="#">
+						<%=item.postUser.name %>
+					</a>
+				</span>
+				<small class="pull-right"><span rel="dateType" title="<%=dateFormat(item.replyTime) %>"><%=item.replyTime%></span></small>
+			</div>
+			<div class="artical-content">
+				<%-item.content %>
+			</div>
+			<div class="comment-info">
+				<a href="#">编辑</a>
+				<a href="#">屏蔽</a>
+				<a href="#">引用</a>
+			</div>
+		</div>
+	</div>
+	<% }) %>
+</div>
+
+
+
+<% if(session.auth) { %>
+<form class="well form-horizontal my-postForm" method="post" 
+		action="forum/comment/<%=post._id %>">
+	<fieldset>
+		<legend> 发表回复 </legend>
+		<div class="control-group row-fluid">
+			<label class="control-label" for="post[content]">内容：</label>
+			<textarea name="comment[content]" class="span11 xheditor-simple {skin:'nostyle',html5Upload:false,upImgUrl:'upload_img'}"></textarea>
+		</div>
+		<input type="submit" class="span2 btn btn-primary" value="发表" />
+	</fieldset>
+</form>
+<% } else { %>
+	<h3>登陆之后才能回复</h3>
+<% } %>
