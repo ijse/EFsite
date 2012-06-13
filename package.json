@@ -1,7 +1,7 @@
 {
    "name":"efsite"
-  ,"node":"0.6.17"
-  ,"author":"ijse"
+  , "node":"0.6.17"
+  , "author":"ijse"
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {

@@ -134,10 +134,32 @@ a.my-forgetPass:hover {
   text-align: center;
   border-top: 1px solid #999999;
 }
+#xhePanel label {
+  display: inline;
+}
+.xheTool a[cmd=About] {
+  display: none !important;
+}
+/**
+ * 帖子列表
+ */
 div.my-postList ul > li {
-  height: 90px;
-  line-height: 90px;
+  padding: 10px 5px 0;
   border-bottom: 1px solid #eeeeee;
+}
+div.my-postList ul > li:hover {
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  background-color: #e5e5e5;
+}
+div.my-postList ul > li .meta {
+  margin: 0;
+  text-align: right;
+  color: #999999;
+  font-size: 11px;
 }
 /**
  * 发表帖子表单
@@ -156,6 +178,57 @@ form.my-postForm textarea {
 }
 form.my-postForm input[type=submit] {
   float: right;
+}
+/**
+ * 帖子内容页
+ */
+.my-post .post-title,
+.my-replys .post-title {
+  padding: 5px;
+  border-bottom: 1px solid #999999;
+}
+.my-post .author-pic,
+.my-replys .author-pic {
+  clear: both;
+  height: 80px;
+  padding: 10px 0;
+  text-align: center;
+}
+.my-post .author-pic img,
+.my-replys .author-pic img {
+  width: 64px;
+  height: 64px;
+  border: 1px solid #555555;
+}
+.my-post .post-info,
+.my-replys .post-info {
+  margin-bottom: 10px;
+  padding: 5px 5px 0;
+  color: #999999;
+}
+.my-post .post-info .author-name,
+.my-replys .post-info .author-name {
+  font-size: 16px;
+}
+.my-post .artical-content,
+.my-replys .artical-content {
+  padding: 5px;
+  margin-bottom: 20px;
+}
+.my-replys .reply-title {
+  height: 32px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #999999;
+}
+.my-replys .reply-title h3 {
+  color: #049cdb;
+}
+.my-replys .comment {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.my-replys .comment-info {
+  text-align: right;
 }
 .clearfix {
   *zoom: 1;

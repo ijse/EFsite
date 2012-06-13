@@ -16,15 +16,14 @@
 				作者：<%=item.postUser.name %>
 			</span> 
 			<p class="row meta">
-				<span>
-					<% if(item.reply.length > 0) { %>
-					最后回复：<%=item.reply[item.reply.length-1].postUser.name%>，
-					<% } %>
-				</span>
 				<% if(item.reply.length > 0) { %>
+				<span>
+					最后回复：<%=item.reply[item.reply.length-1].postUser.name%>，
+				</span>
 				<span class="lastTime" rel="dateType" title="<%=dateFormat(item.reply[item.reply.length-1].replyTime) %>"><%=item.reply[item.reply.length-1].replyTime%></span>
 				<% } else { %>
-				发表于<span class="lastTime" rel="dateType" title="<%=dateFormat(item.postTime) %>"><%=item.postTime%></span>				
+				<span>发表于</span>
+				<span class="lastTime" rel="dateType" title="<%=dateFormat(item.postTime) %>"><%=item.postTime%></span>				
 				<% } %>
 			</p>
 		</li>
