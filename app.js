@@ -12,6 +12,8 @@ var app = module.exports = express.createServer();
 global.log4js = require("log4js");
 log4js.configure(__dirname + "/log4js-config.json");
 
+config.Debug = app.settings.env === "production" ? false : config.Debug;
+
 var logger = global.logger = log4js.getLogger();
 // Configuration
 app.configure(function() {
@@ -26,6 +28,7 @@ app.configure(function() {
     mids.init(app, mids.middlewares);
     //app.use(app.router);
     app.use(express.static(config.Dirs.staticDir + "/"));
+	
     app.settings.env = config.Debug ? "development" : "production";
 });
 
