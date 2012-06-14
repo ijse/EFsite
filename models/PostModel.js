@@ -36,6 +36,10 @@ var PostModel = new Schema({
 		type: Date,
 		"default": Date.now
 	},
+	activeTime: {
+		type: Date,
+		"default": Date.now		
+	},
 	reply: {
 		type: [Comment],
 		"default": []
@@ -48,6 +52,7 @@ PostModel.statics.findAndModify = function() {
 
 PostModel.statics.comment = function(pid, comment, callback) {
 	this.findById(pid, function(err, post) {
+		post.activeTime = Date.now();
 		post.reply.push(comment);
 		post.save(callback);
 	})

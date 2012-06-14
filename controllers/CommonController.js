@@ -37,12 +37,11 @@ exports = module.exports = {
   		res.end(JSON.stringify(ofile));
 	},
 	xheditorImgUpload: function(req, res, next) {
-		debugger;
 		var ofile = req.files.filedata;
 		ofile.url = utils.moveFile(ofile.path, ofile.name, config.Dirs.uploadDir + "/images");
   		res.end(JSON.stringify({
   			err:"",
-  			msg: ofile.url
+  			msg: ofile.url.replace(config.Dirs.staticDir + "/", "")
   		}));
 	}
 }

@@ -1,3 +1,5 @@
 .nodester.appconfig
 *.log
 .gitignore
+public/uploads/
+tmp

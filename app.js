@@ -38,7 +38,7 @@ app.configure('development', function() {
         dumpExceptions: true,
         showStack: true
     }));
-    mongoose.connect("mongodb://localhost/efsite"); // test database
+    mongoose.connect(config.DataBase.testUrl); // test database
 });
 
 // Configure production mode

@@ -31,7 +31,7 @@ exports = module.exports = {
 					.limit(limit)
 					.populate('reply.postUser')
 					.populate('postUser') // load postUser
-					.desc("reply.replyTime") // desc by postTime
+					.desc("activeTime") // desc by postTime
 					.run(function(err, list) {
 						if(!err) {
 							res.locals({
