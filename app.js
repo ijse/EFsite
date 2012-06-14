@@ -9,12 +9,12 @@ var utils = require(__dirname + "/utils");
 var mids = require(__dirname + "/middlewares");
 var app = module.exports = express.createServer();
 
-global.log4js = require("log4js");
-log4js.configure(__dirname + "/log4js-config.json");
+// global.log4js = require("log4js");
+// log4js.configure(__dirname + "/log4js-config.json");
 
 config.Debug = app.settings.env === "production" ? false : config.Debug;
 
-var logger = global.logger = log4js.getLogger();
+// var logger = global.logger = log4js.getLogger();
 // Configuration
 app.configure(function() {
     app.set('views', config.Dirs.viewDir);
