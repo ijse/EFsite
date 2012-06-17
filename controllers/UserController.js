@@ -16,7 +16,7 @@ exports = module.exports ={
 	 */
 	registView : function (req, res, next) {
 		res.local("layout", "layout_1-1");
-		utils.response(req, res, "regist");
+		utils.response(req, res, "pim/regist");
 	},
 
 	/**
@@ -79,7 +79,10 @@ exports = module.exports ={
 				} else {
 					req.session.auth = true;
 					req.session.user = user;
-					//delete req.session.user.pass;
+
+					// Update last login time async
+					user.lastLoginTime = Date.now();
+					user.save();
 
 					res.local("message", {
 						title: "登陆成功",

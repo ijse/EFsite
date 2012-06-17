@@ -7,22 +7,13 @@ var config = require("../config");
 exports = module.exports = {
 	index: function(req, res, next) {
 		res.locals({
-			title: "NAD LIFE",
+			title: "首页 - " + config.AppName,
 			active: {
 				index: true
 			},
 			PType: "post"
 		});
-
-		if(req.param("f") == "true") {
-			res.local("message", {
-				title: "测试消息",
-				content: "内容，，内容！！"
-			});
-			next();
-		} else {
-			utils.response(req, res, "index");
-		}
+		utils.response(req, res, "index");
 	},
 	/**
 	 * Ajax upload 

@@ -37,7 +37,7 @@ exports = module.exports = {
 							res.locals({
 								"postList": list
 							});
-							utils.response(req, res, "forum");
+							utils.response(req, res, "forum/index");
 						} else {
 							throw err;
 						}
@@ -97,7 +97,7 @@ exports = module.exports = {
 					layout: "layout_2-1",
 					sidebar: "index"
 				});
-				utils.response(req, res, "post");
+				utils.response(req, res, "forum/post");
 			} else {
 				throw err;
 			}

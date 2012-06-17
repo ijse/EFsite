@@ -19,4 +19,8 @@ $(function($) {
 	 * @type {[type]}
 	 */
 	$("[rel=dateType]").prettyDate();
+
+	/**
+	 * 
+	 */
 });

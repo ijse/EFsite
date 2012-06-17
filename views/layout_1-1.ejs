@@ -1,14 +1,14 @@
-<%-partial(config.Dirs.viewDir + "/partials/pageHeader.ejs") %>
-<%-partial(config.Dirs.viewDir + "/partials/navbar.ejs") %>
+<%-partial("pageHeader.ejs") %>
+<%-partial("navbar.ejs") %>
 
-		<div class="container minHeight500">
+		<div class="container">
 			<div class="row">
 				<div class="span6"><%-body %></div>
 				<div class="span6">
 					<img src="<%=config.BaseUrl%>img/nadonline.jpg" />
 				</div>
 			</div>
-			<%-partial(config.Dirs.viewDir + "/partials/footer.ejs") %>
+			<%-partial("footer.ejs") %>
 		</div>
 
-<%-partial(config.Dirs.viewDir + "/partials/pageFooter.ejs") %>
+<%-partial("pageFooter.ejs") %>

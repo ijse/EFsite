@@ -3,6 +3,9 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var UserModel = new Schema({
+	pic: {
+		type: String
+	},
 	name: {
 		type: String,
 		'default': 'annoymouse',
