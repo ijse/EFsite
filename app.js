@@ -16,6 +16,19 @@ var app = module.exports = express.createServer();
 
 config.Debug = app.settings.env === "production" ? false : config.Debug;
 
+
+
+/***********/
+// 开发之用，为兼顾NAE, 
+// 设置本地NODE_ENV=development-localtest, 连接本地数据库
+// 发布到NAE上，则连接NAE本地数据库
+if(app.settings.env === "development-localtest") {
+    config.Debug = true;
+    config.DataBase.testUrl = "mongodb://localhost/efsite";
+}
+/**********/
+
+
 // Configuration
 app.configure(function() {
     app.set('views', config.Dirs.viewDir);

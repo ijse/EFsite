@@ -7,7 +7,7 @@ module.exports = {
 	// 1. Cache
 	// 2. Auto-compile less files
 	// 3. Different database
-	Debug: true,  // 优先采用环境变量NODE_ENV的值
+	Debug: false,  // 优先采用环境变量NODE_ENV的值
 
 	logo: "MyApp",
 	AppName: "MyApp",
@@ -16,7 +16,7 @@ module.exports = {
 	SessionSecret: "My Session Secret",
 
 	DataBase: {
-		testUrl: "mongodb://localhost/efsite",
+		testUrl: "mongodb://nD0HSNNqvGjP:hySWfkcRUu@127.0.0.1:20088/BzTHAcYHXzQn",
 		url: "mongodb://nodesitedb:nodesitedbpass@ds033477.mongolab.com:33477/nodesite"
 	},
 
