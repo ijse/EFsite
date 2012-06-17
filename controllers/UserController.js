@@ -47,6 +47,9 @@ exports = module.exports ={
 		})
 	},
 
+	pim: function(req, res, next) {
+		utils.response(req, res, "pim/index");
+	},
 	/**
 	 * 用户登陆
 	 *
@@ -86,7 +89,8 @@ exports = module.exports ={
 
 					res.local("message", {
 						title: "登陆成功",
-						content: "正在为您跳转..."
+						content: "正在为您跳转...",
+						url: req.headers.referer
 					});
 				}
 			}

@@ -15,6 +15,7 @@ module.exports = function(app, mids) {
 	app.post("/regist", user.regist, user.login);
 	app.post("/login", user.login);
 	app.get("/logout", user.logout);
+	app.get("/pim", user.pim);
 
 	app.get("/forum$", forum.index);
 	app.get("/forum_:page$", forum.index);
