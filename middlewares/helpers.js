@@ -9,9 +9,9 @@ module.exports = {
 	},
 	"staticHelpers": {
 		config: config,
-		VIEW_DIR: config.Dirs.viewDir + "/",
-		BASE_URL: config.BaseUrl,
-		SITE_NAME: config.AppName,
+		//VIEW_DIR: config.Dirs.viewDir + "/",
+		//BASE_URL: config.BaseUrl,
+		//SITE_NAME: config.AppName,
 		dateFormat: function(date, fmt) {
 			var d = new moment(date);
 			return d.format(fmt);

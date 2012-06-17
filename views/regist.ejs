@@ -2,6 +2,13 @@
     <fieldset> 
         <legend>用户注册</legend>
         <div class="control-group">
+            <label for="user[pic]" class="control-label">头像：</label>
+            <div class="controls">
+                <button id="btn-upload" class="btn">Upload Pic</button>
+                <input type="hidden" name="user[pic]" />
+            </div>
+        </div>
+        <div class="control-group">
             <label for="user[name]" class="control-label">用户名：</label>
           <div class="controls">
             <input type="text" name="user[name]" required="true" />

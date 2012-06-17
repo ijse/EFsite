@@ -1,13 +1,12 @@
-
-<%-partial(VIEW_DIR + "partials/pageHeader.ejs") %>
-<%-partial(VIEW_DIR + "partials/navbar.ejs") %>
+<%-partial(config.Dirs.viewDir + "/partials/pageHeader.ejs") %>
+<%-partial(config.Dirs.viewDir + "/partials/navbar.ejs") %>
 
 		<div class="container minHeight500">
 			<div class="row">
 				<div class="span8"><%-body %></div>
 				<div class="span4"><%-partial(sidebar) %></div>
 			</div>
-			<%-partial(VIEW_DIR + "partials/footer.ejs") %>
+			<%-partial(config.Dirs.viewDir + "/partials/footer.ejs") %>
 		</div>
 
-<%-partial(VIEW_DIR + "partials/pageFooter.ejs") %>
+<%-partial(config.Dirs.viewDir + "/partials/pageFooter.ejs") %>

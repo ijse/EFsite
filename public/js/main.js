@@ -13,5 +13,10 @@ $.prettyDate.messages = {
 	weeks: $.prettyDate.template("{0}周前")
 };
 $(function($) {
+	/**
+	 * 在标签上添加rel=dateType属性，将会
+	 * 自动将该标签的title属性值的日期转换为人性化日期
+	 * @type {[type]}
+	 */
 	$("[rel=dateType]").prettyDate();
 });

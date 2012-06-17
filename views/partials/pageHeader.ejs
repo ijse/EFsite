@@ -1,8 +1,8 @@
 <%
 	var title = typeof title === "undefined" ? 
-					SITE_NAME 
+					config.AppName 
 					: 
-					title + " - " + SITE_NAME;
+					title + " - " + config.AppName;
 	var PType = typeof PType === "undefined" ? "" : PType;
 %>
 
@@ -10,7 +10,7 @@
 <html>
 	<head>
 		<title><%=title %></title>
-		<base href="<%=BASE_URL%>" target="_self" />
+		<base href="<%=config.BaseUrl%>" target="_self" />
 		
 		<% if(config.Debug) { %>
 		<link rel="stylesheet/less" type="text/css" href="less/bootstrap.less" />
