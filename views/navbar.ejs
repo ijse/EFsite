@@ -30,6 +30,17 @@
 			<li><a href="logout" title="退出登陆">退出登陆</a></li>
 		</ul>
 		<% } else { %>
+		<ul class="nav pull-right">
+			<li>
+				<a href=".signIn" data-toggle="modal">登 陆</a>
+			</li>
+			<li>
+				<a href="/regist"> 注 册</a> 
+			</li>
+
+		</ul>
+
+<!--
 			<form class="nav pull-right form-inline my-loginBox" method="post" action="login">
 			  	<input type="text" name="user[name]" placeholder="UserName" class="input-small" />
 			  	<input type="password" name="user[pass]" placeholder="PassWord"  class="input-small" />
@@ -44,6 +55,7 @@
 				</div>
 			  	<a href="#" class="my-forgetPass" title="通过邮箱找回密码">忘记密码</a>
 			</form>
+-->
 		<% } %>
     </div>
   </div>

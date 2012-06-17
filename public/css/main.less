@@ -1,18 +1,32 @@
 /**
  * Defined less css
  */
-@navbarHeight: 60px;
-@navbarBackground: @blue;
+@navbarHeight: 40px;
+@navbarBackground: @black;
 @navbarBrandColor: @white;
 
 body { padding-top: @navbarHeight + 20;}
-.minHeight500{ min-height: 450px;}
-.my-topNav { .opacity(80); }
+#xhePanel label { display:inline; } /* Fix xheditor dialog display bug */
+.xheTool a[cmd=About] { display:none !important; } /* Remove `about` of xheditor */
 
-.my-loginBox div.btn-group.my-loginBtns { top: 10px; margin-top: 10px; padding: 0; display:inline-block;}
-.my-loginBox div.btn-group .dropdown-menu { min-width: 120px; }
-a.my-forgetPass { color: @white; }
-a.my-forgetPass:hover { color:@white; }
+
+.my-topNav { 
+	.opacity(90);
+}
+
+.modal.signIn {
+	width: 300px;
+	margin: -200px 0 0 -150px;
+
+	form {
+		.control-label {
+			width: 60px;
+		}
+		.controls {
+			margin-left: 80px;
+		}
+	}
+}
 
 .footer {
 	padding: 20px;
@@ -20,8 +34,6 @@ a.my-forgetPass:hover { color:@white; }
 	border-top: 1px solid @grayLight;
 }
 
-#xhePanel label { display:inline; }
-.xheTool a[cmd=About] { display:none !important; }
 /**
  * 帖子列表
  */

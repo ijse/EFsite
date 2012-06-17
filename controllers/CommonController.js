@@ -7,7 +7,7 @@ var config = require("../config");
 exports = module.exports = {
 	index: function(req, res, next) {
 		res.locals({
-			title: "首页 - " + config.AppName,
+			title: "首页",
 			active: {
 				index: true
 			},
