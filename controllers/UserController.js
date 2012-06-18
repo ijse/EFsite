@@ -28,6 +28,10 @@ exports = module.exports ={
 	 */
 	regist: function(req, res, next) {
 		var formData = req.body.user;
+		// 用户头像使用www.gravatar.com中的， ?s=128 设置取用时的尺寸
+		formData.email = formData.email.toLowerCase().trim();
+		formData.pic = "http://www.gravatar.com/avatar/" + 
+						utils.md5hash(formData.email);
 		var user = new UserModel(formData);
 		user.save(function(err, user) {
 			if(err) {

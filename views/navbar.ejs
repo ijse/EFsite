@@ -27,7 +27,8 @@
 		<ul class="nav pull-right">
 			<li><a>欢迎您，<%=session.user.name %></a></li>
 			<li><a href="pim" title="个人中心">个人中心</a></li>
-			<li><a href="logout" title="退出登陆">退出登陆</a></li>
+			<li class="divider-vertical"></li>
+			<li><a href="logout" title="退出登陆">退出</a></li>
 		</ul>
 		<% } else { %>
 		<ul class="nav pull-right">
@@ -39,23 +40,6 @@
 			</li>
 
 		</ul>
-
-<!--
-			<form class="nav pull-right form-inline my-loginBox" method="post" action="login">
-			  	<input type="text" name="user[name]" placeholder="UserName" class="input-small" />
-			  	<input type="password" name="user[pass]" placeholder="PassWord"  class="input-small" />
-			  	<div class="btn-group my-loginBtns">
-					<button class="btn btn-primary"><i class="icon-user icon-white"> </i>  登陆 </button>
-					<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="regist"><i class="icon-plus"></i> 注册用户</a></li>
-					</ul>
-				</div>
-			  	<a href="#" class="my-forgetPass" title="通过邮箱找回密码">忘记密码</a>
-			</form>
--->
 		<% } %>
     </div>
   </div>

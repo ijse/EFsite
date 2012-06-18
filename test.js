@@ -31,5 +31,5 @@
 // 	}
 // });
 
-var a = new Buffer('key1=value1').toString('base64');
-console.log(a);
+// var a = new Buffer('key1=value1').toString('base64');
+// console.log(a);

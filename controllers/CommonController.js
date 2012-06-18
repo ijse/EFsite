@@ -16,7 +16,7 @@ exports = module.exports = {
 		utils.response(req, res, "index");
 	},
 	/**
-	 * Ajax upload 
+	 * Ajax upload
 	 * @param  {[type]}   req  [description]
 	 * @param  {[type]}   res  [description]
 	 * @param  {Function} next [description]

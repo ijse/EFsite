@@ -25,6 +25,10 @@ var UserModel = new Schema({
 	lastLoginTime: {
 		type: Date,
 		'default': Date.now
+	},
+	role: {
+		type: String,
+		'default': "newbie"
 	}
 });
 mongoose.model("User", UserModel);
