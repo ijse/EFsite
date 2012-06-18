@@ -3,7 +3,7 @@
  */
 var utils = require("../utils");
 var models = require("../models");
-
+var config = require("../config");
 var UserModel = models.get("User");
 
 exports = module.exports ={
@@ -47,8 +47,56 @@ exports = module.exports ={
 		})
 	},
 
-	pim: function(req, res, next) {
+	/**
+	 * 用户中心
+	 * @param  {[type]}   req  [description]
+	 * @param  {[type]}   res  [description]
+	 * @param  {Function} next [description]
+	 * @return {[type]}        [description]
+	 */
+	pimView: function(req, res, next) {
+		debugger;
+		var p = req.param("pageName");
+		console.log(p);
+		if(!p) {
+			p = "profile";
+		}
+		res.locals({
+			//"BaseUrl": "/pim"
+			main: p
+		})
 		utils.response(req, res, "pim/index");
+	},
+
+	/**
+	 * 处理用户上传头像
+	 * @param  {[type]}   req  [description]
+	 * @param  {[type]}   res  [description]
+	 * @param  {Function} next [description]
+	 * @return {[type]}        [description]
+	 */
+	uploadAvatar: function(req, res, next) {
+		debugger;
+		var pic120 = req.body.png1;
+		var pic48 = req.body.png2;
+		var pic24 = req.body.png3;
+
+		var user = req.session.user;
+
+		utils.saveAvatar([{
+			filename: config.Dirs.staticDir + "/uploads/avatar/" + user._id + "_120.jpg",
+			file: new Buffer(pic120, "base64")
+		}, {
+			filename: config.Dirs.staticDir + "/uploads/avatar/" + user._id + "_48.jpg",
+			file: new Buffer(pic48, "base64")
+		}, {
+			filename: config.Dirs.staticDir + "/uploads/avatar/" + user._id + "_24.jpg",
+			file: new Buffer(pic24, "base64")
+		}], function(err) {
+			res.local("success", "头像保存成功！");
+			res.end("success=上传成功");
+		})
+
 	},
 	/**
 	 * 用户登陆

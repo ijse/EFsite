@@ -1,3 +1,7 @@
+<%
+	var activeLi = {};
+	activeLi[main] = "class='active'";
+%>
 <div class="my-pim">
 	<ul class="breadcrumb">
 		<li>
@@ -15,11 +19,11 @@
 			</div>
 			<ul class="nav nav-list">
 				<li class="nav-header">个人信息</li>
-				<li class="active">
-					<a href="#"><i class="icon-user"></i> 基本资料</a>
+				<li <%=activeLi["profile"] || "" %>>
+					<a href="pim"><i class="icon-user"></i> 基本资料</a>
 				</li>
-				<li>
-					<a href="#"><i class="icon-picture"></i> 修改头像</a>
+				<li <%=activeLi["pic"] || "" %>>
+					<a href="pim/pic" data-to=".container"><i class="icon-picture"></i> 修改头像</a>
 				</li>
 				<li>
 					<a href="#"><i class="icon-magnet"></i> 账号绑定</a>
@@ -47,8 +51,8 @@
 				</li>
 			</ul>
 		</div>
-		<div class="span10 well" style="height: 600px">
-
+		<div class="span10 container">
+			<%-partial(main) %>
 		</div>
 	</div>
 </div>

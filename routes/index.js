@@ -15,7 +15,8 @@ module.exports = function(app, mids) {
 	app.post("/regist", user.regist, user.login);
 	app.post("/login", user.login);
 	app.get("/logout", user.logout);
-	app.get("/pim", user.pim);
+	app.get("/pim", user.pimView);
+	app.get("/pim/:pageName", user.pimView);
 
 	app.get("/forum$", forum.index);
 	app.get("/forum_:page$", forum.index);
@@ -26,6 +27,7 @@ module.exports = function(app, mids) {
 	// -----------------
 	app.post("/upload", common.ajaxUpload);
 	app.post("/upload_img", common.xheditorImgUpload);
+	app.post("/sdcms.cn.php", user.uploadAvatar);
 }
 
 function stamp(ptype, nactive) {

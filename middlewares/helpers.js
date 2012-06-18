@@ -9,6 +9,7 @@ module.exports = {
 	},
 	"staticHelpers": {
 		config: config,
+		BaseUrl: config.BaseUrl,
 		//VIEW_DIR: config.Dirs.viewDir + "/",
 		//BASE_URL: config.BaseUrl,
 		//SITE_NAME: config.AppName,
