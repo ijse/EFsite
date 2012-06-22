@@ -32,7 +32,7 @@ exports = module.exports = {
 		ofile.url = utils.moveFile(ofile.path, ofile.name, config.Dirs.uploadDir + "/images");
   		res.end(JSON.stringify({
   			err:"",
-  			msg: ofile.url.replace(config.Dirs.staticDir + "/", "")
+  			msg: ofile.url.replace(config.Dirs.staticDir + "/", "/")
   		}));
 	}
 }

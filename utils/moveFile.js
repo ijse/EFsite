@@ -12,7 +12,6 @@ exports = module.exports = function(tempFile, fileName, destFolder) {
 	var temp_path = tempFile;
 	var file_name = path.basename(temp_path) + path.extname(fileName);
 	var dest_path = destFolder + "/" + file_name;
-	console.log(temp_path, dest_path);
 	fs.rename(temp_path, dest_path, function(err) {
 		if(err) {
 			logger.error(file_name, "move fail!!\n", err);
