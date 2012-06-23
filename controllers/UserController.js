@@ -59,7 +59,6 @@ exports = module.exports ={
 	 * @return {[type]}        [description]
 	 */
 	pimView: function(req, res, next) {
-		debugger;
 		var p = req.param("pageName");
 		console.log(p);
 		if(!p) {
@@ -80,7 +79,6 @@ exports = module.exports ={
 	 * @return {[type]}        [description]
 	 */
 	uploadAvatar: function(req, res, next) {
-		debugger;
 		var pic120 = req.body.png1;
 		var pic48 = req.body.png2;
 		var pic24 = req.body.png3;

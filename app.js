@@ -14,7 +14,7 @@ var app = module.exports = express.createServer();
 // log4js.configure(__dirname + "/log4js-config.json");
 // var logger = global.logger = log4js.getLogger();
 
-console.log(app.settings);
+//console.log(app.settings);
 config.Debug = app.settings.env === "production" ? false : config.Debug;
 
 
@@ -60,8 +60,8 @@ app.configure('production', function() {
     // Compile Less files
     // 下面这段代码在有的环境下会出错，所以暂时注释掉了
     // 在本地运行没有问题
-    // utils.lessCompile(config.Dirs.staticDir + "/less/bootstrap.less", 
-    //                    config.Dirs.staticDir + "/css");
+    utils.lessCompile(config.Dirs.staticDir + "/less/bootstrap.less", 
+                        config.Dirs.staticDir + "/css");
     app.use(express.errorHandler());
     mongoose.connect(config.DataBase.url); // online database
 });
