@@ -3,6 +3,9 @@
  */
 var mongoose = require("mongoose");
 var fs = require("fs");
+/**
+ * This method is deprecated
+ */
 exports = module.exports.init = function() {
 
 	fs.readdirSync(__dirname).forEach(function(item, index, arr) {
@@ -14,5 +17,6 @@ exports = module.exports.init = function() {
 }
 
 exports = module.exports.get = function(model) {
-	return mongoose.model(model);
+	//return mongoose.model(model);
+	return require("./" + model + "Model");
 }

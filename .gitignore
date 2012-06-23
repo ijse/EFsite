@@ -3,3 +3,4 @@
 .gitignore
 public/uploads/*
 log/*
+db/mongod.lock

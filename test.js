@@ -33,3 +33,27 @@
 
 // var a = new Buffer('key1=value1').toString('base64');
 // console.log(a);
+
+var model = require("./models").get("User");
+var fs = require("fs");
+
+model.findOne({name: "ijse" }, function(err, da) {
+
+	console.log(da);
+});
+
+var Step = require("step");
+Step(
+function() {
+	console.log("first run..");
+	return true;
+},
+function(err) {
+	if(err) return false;
+	//model.findOne({name: "ijse" }, this)
+	fs.readFile(__filename, this);
+}, function(err, da) {
+	console.log("End: " , arguments);	
+}, function(err, other) {
+	console.log("over");	
+});

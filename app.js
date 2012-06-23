@@ -14,6 +14,7 @@ var app = module.exports = express.createServer();
 // log4js.configure(__dirname + "/log4js-config.json");
 // var logger = global.logger = log4js.getLogger();
 
+console.log(app.settings);
 config.Debug = app.settings.env === "production" ? false : config.Debug;
 
 

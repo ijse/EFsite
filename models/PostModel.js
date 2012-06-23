@@ -59,4 +59,5 @@ PostModel.statics.comment = function(pid, comment, callback) {
 }
 
 mongoose.model("Post", PostModel);
-module.exports = PostModel;
+//module.exports = PostModel;
+module.exports = exports = mongoose.model("Post");

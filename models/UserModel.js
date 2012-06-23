@@ -32,4 +32,5 @@ var UserModel = new Schema({
 	}
 });
 mongoose.model("User", UserModel);
-module.exports = UserModel;
+//module.exports = UserModel;
+module.exports = exports = mongoose.model("User");
