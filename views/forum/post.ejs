@@ -13,14 +13,17 @@
 </ul>
 
 <div class="row-fluid my-post">
-	<h3 class="post-title"><%=post.title %></h3>
+	<h3 class="post-title">
+		<%=post.title %>
+		<button class="btn btn-primary pull-right">发表回复</button>
+	</h3>
 	<div class="span2 author-pic">
 		<img src="http://placehold.it/64x64"/>
 	</div>
 	<div class="offset1 body">
 		<div class="post-info">
 			<span class="author-name"><a href="#"><%=post.postUser.name %></a></span>
-			<small class="pull-right"><span title="<%=dateFormat(post.postTime) %>"><%=dateFormat(post.postTime, "YYYY-MM-dd HH:mm:ss") %></span></small>
+			<small class="pull-right"><span title="<%=dateFormat(post.postTime) %>"><%=dateFormat(post.postTime, "YYYY-MM-DD HH:mm:ss") %></span></small>
 		</div>
 		<div class="artical-content">
 			<%-post.content %>
@@ -36,7 +39,6 @@
 			没有回复
 			<% } %>
 		</h3>
-		<button class="btn btn-primary pull-right">发表回复</button>
 	</div>
 	<% post.reply === undefined || post.reply.forEach(function(item, index, arr) { %>
 	<div class="comment">
@@ -47,7 +49,7 @@
 		<div class="offset1 body">
 			<div class="post-info">
 				<span>
-					<a href="#">
+					<a href="javascript:atuser('<%=item.postUser._id%>','<%=item.postUser.name%>');">
 						<%=item.postUser.name %>
 					</a>
 				</span>

@@ -31,8 +31,8 @@ exports = module.exports = {
 					.limit(limit)
 					.populate('reply.postUser')
 					.populate('postUser') // load postUser
-					.desc("activeTime") // desc by postTime
-					.run(function(err, list) {
+					.sort("activeTime","desc") // desc by postTime
+					.exec(function(err, list) {
 						if(!err) {
 							res.locals({
 								"postList": list
@@ -86,7 +86,7 @@ exports = module.exports = {
 	showPost: function(req, res, next) {
 		var pid = req.param("pid");
 		PostModel.findById(pid).populate("postUser")
-		  .populate("reply.postUser").run(function(err, post) {
+		  .populate("reply.postUser").exec(function(err, post) {
 			if(!err) {
 				res.locals({
 					title: post.title,

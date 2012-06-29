@@ -21,6 +21,21 @@ $(function($) {
 	$("[rel=dateType]").prettyDate();
 
 	/**
-	 * 
+	 * 引用回复
 	 */
+	$(".fn-refer").live("click", function(event) {
+		
+	});
 });
+
+/**
+ * 当@某位用户时，在编辑嚣中插入标记
+ */
+function atuser(userid, name) {
+	var editor = $(".xheditor").xheditor();
+	editor.pasteHTML("<a href='p/" + userid + "' class='my-atuser'>@" + name + "</a>&nbsp;");
+}
+
+/**
+ * 引用某用户的回复
+ */
