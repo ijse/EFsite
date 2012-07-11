@@ -2,6 +2,9 @@
 var utils = require("../utils");
 var models = require("../models");
 var PostModel = models.get("Post");
+var EventProxy = require("eventproxy").EventProxy;
+var proxy = new EventProxy();
+
 exports = module.exports = {
 	index: function(req, res, next) {
 		var limit = 5;
@@ -15,7 +18,28 @@ exports = module.exports = {
 			layout: "layout_2-1",
 			sidebar: "index"
 		});
+
+		proxy.assign("count", "where", done);
+		
 		PostModel.count({}, function(err, num) {
+			proxy.trigger("count", num);
+		});
+
+		PostModel.where()
+			.skip(limit * (page-1))
+			.limit(limit)
+			.populate('reply.postUser')
+			.populate('postUser') // load postUser
+			.sort("activeTime","desc") // desc by postTime
+			.exec(function(err, list) {
+				if(!err) {
+					proxy.trigger("where", list);
+				} else {
+					throw err;
+				}
+		});
+		
+		function done(num, list) {
 			var totalPage = Math.ceil(num / limit);
 			page = Math.min(page, totalPage);
 			page = Math.max(1, page);
@@ -26,24 +50,12 @@ exports = module.exports = {
 					limit: limit
 				}
 			})
-			PostModel.where()
-					.skip(limit * (page-1))
-					.limit(limit)
-					.populate('reply.postUser')
-					.populate('postUser') // load postUser
-					.sort("activeTime","desc") // desc by postTime
-					.exec(function(err, list) {
-						if(!err) {
-							res.locals({
-								"postList": list
-							});
-							utils.response(req, res, "forum/index");
-						} else {
-							throw err;
-						}
-					});
-			
-		});
+
+			res.locals({
+				"postList": list
+			});
+			utils.response(req, res, "forum/index");
+		}
 	},
 	/**
 	 * 发表帖子
@@ -88,6 +100,11 @@ exports = module.exports = {
 		PostModel.findById(pid).populate("postUser")
 		  .populate("reply.postUser").exec(function(err, post) {
 			if(!err) {
+				// Update post meta
+				post.visits ++;
+
+				post.save();
+
 				res.locals({
 					title: post.title,
 					active: {

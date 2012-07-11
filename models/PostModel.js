@@ -11,14 +11,15 @@ var Comment = new Schema({
 	replyTime: {
 		type: Date,
 		"default": Date.now
+	},
+	refer: {
+		type: Schema.ObjectId,
+		ref: Comment 
 	}
-})
+});
+
 var PostModel = new Schema({
 	title: String,
-	visits: {
-		type: Number,
-		"default": 0
-	},
 	content: {
 		type: String,
 		required: true
@@ -43,6 +44,17 @@ var PostModel = new Schema({
 	reply: {
 		type: [Comment],
 		"default": []
+	},
+	visits: {
+		type: Number,
+		"default": 0
+	},
+	deleted: {
+		type: Boolean,
+		"default": false
+	},
+	tags: {
+		type: [Schema.ObjectId ]
 	}
 })
 
